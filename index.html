@@ -3,78 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HerzBier | Ciência e Tecnologia Aplicada I</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <title>HerzBier | Engenharia e Tecnologia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
     <style>
         :root {
             --senac-blue: #004587;
-            --tech-gray: #2d3436;
-            --border-color: #dfe6e9;
-            --bg-body: #f9f9f9;
-            --accent-gold: #FFC107;
+            --wit-gold: #FFC107;
+            --tech-dark: #1E293B;
+            --bg-gray: #F8FAFC;
+            --white: #FFFFFF;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-body); color: var(--tech-gray); line-height: 1.6; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-gray); color: var(--tech-dark); line-height: 1.6; }
 
-        /* HEADER PROFISSIONAL */
+        /* HEADER */
         header {
-            background: white;
-            padding: 20px 5%;
+            background: var(--white);
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid var(--senac-blue);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            border-bottom: 3px solid var(--senac-blue);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
-        .header-logo { display: flex; align-items: center; gap: 15px; }
-        .header-logo img { height: 60px; width: auto; }
-        .header-title h1 { font-size: 1.2rem; color: var(--senac-blue); font-weight: 800; }
-        .header-title p { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        .header-brand { display: flex; align-items: center; gap: 15px; }
+        .header-brand img { height: 55px; width: auto; }
+        .header-brand h1 { font-size: 1.3rem; color: var(--senac-blue); font-weight: 800; letter-spacing: -1px; }
 
         .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
 
-        /* SEÇÕES TÉCNICAS */
-        section { background: white; padding: 40px; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 30px; }
-        h2 { font-size: 1.5rem; margin-bottom: 20px; color: var(--senac-blue); border-left: 4px solid var(--accent-gold); padding-left: 15px; }
+        /* CARDS */
+        .card { 
+            background: var(--white); 
+            padding: 40px; 
+            border-radius: 8px; 
+            border: 1px solid #E2E8F0; 
+            margin-bottom: 30px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02); 
+        }
 
-        /* INFRAESTRUTURA IOT */
-        .hardware-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
-        .hw-card { background: #f1f2f6; padding: 20px; border-radius: 6px; text-align: center; }
-        .hw-card b { display: block; color: var(--senac-blue); margin-bottom: 5px; }
+        .section-label { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--senac-blue); font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        h2 { color: var(--senac-blue); font-size: 2rem; margin-bottom: 20px; }
+        p { margin-bottom: 20px; color: #475569; }
 
-        /* FLUXOGRAMA OFICIAL */
-        .flow-container { display: flex; flex-direction: column; gap: 10px; }
-        .flow-phase { padding: 15px; border-radius: 4px; font-weight: 600; text-align: center; }
-        .quente { background: #ffeaa7; border: 1px solid #fdcb6e; }
-        .fria { background: #dff9fb; border: 1px solid #81ecec; }
+        /* ARQUITETURA */
+        .tech-box {
+            background: var(--tech-dark);
+            color: var(--wit-gold);
+            padding: 30px;
+            border-radius: 6px;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 25px 0;
+            line-height: 1.8;
+        }
 
-        /* FÓRMULAS E LOGICA */
-        .logic-box { background: var(--tech-gray); color: #fff; padding: 30px; border-radius: 8px; font-family: 'JetBrains Mono', monospace; }
-        .formula { font-size: 1.2rem; color: var(--accent-gold); margin: 15px 0; display: block; }
+        .loop-badge {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 5px 20px;
+            border: 1px dashed var(--wit-gold);
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
 
-        /* TABELA DE REQUISITOS ADO */
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { text-align: left; padding: 12px; border-bottom: 1px solid var(--border-color); font-size: 0.9rem; }
-        th { background: #f1f2f6; color: var(--senac-blue); }
+        /* GRID DE PROCESSOS */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .fase-card { border-left: 4px solid var(--wit-gold); padding: 20px; background: #fff; }
+        .fase-card h3 { font-size: 1.1rem; color: var(--senac-blue); margin-bottom: 10px; }
+        .metric { font-weight: 800; color: #E67E22; }
 
-        footer { text-align: center; padding: 40px; font-size: 0.8rem; color: #95a5a6; }
+        /* BOTÃO DASHBOARD */
+        .btn-dash {
+            display: inline-block;
+            background: var(--senac-blue);
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 700;
+            margin-top: 30px;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 69, 135, 0.2);
+        }
+        .btn-dash:hover { background: #003366; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 69, 135, 0.3); }
+
+        footer { text-align: center; padding: 60px; color: #94A3B8; font-size: 0.8rem; border-top: 1px solid #E2E8F0; }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="header-logo">
+    <div class="header-brand">
         <img src="logocerveja.png" alt="HerzBier Logo">
-        <div class="header-title">
-            <h1>HERZBIER</h1>
-            <p>Engenharia de Computação | SENAC</p>
-        </div>
+        <h1>HERZBIER <small style="font-weight: 400; opacity: 0.7;">| BY BYTE BIER</small></h1>
     </div>
-    <div style="text-align: right;">
+    <div style="text-align: right; font-size: 0.8rem; color: var(--senac-blue);">
         <p><b>Prof. Rafael Pereira</b></p>
         <p><b>Prof. Dr. Eng. Wagner Ludescher</b></p>
     </div>
@@ -82,79 +111,77 @@
 
 <div class="container">
 
-    <section>
-        <h2>Objetivos da Disciplina</h2>
-        <p>Desenvolvimento de sistema microcontrolado para controle de temperatura e armazenamento de dados em tempo real, visando a estabilidade do processo de produção da cerveja <b>Witbier</b>.</p>
-        <div class="hardware-grid">
-            <div class="hw-card"><b>Controlador</b>ESP32 / Arduino</div>
-            <div class="hw-card"><b>Sensor</b>DS18B20 (Waterproof)</div>
-            <div class="hw-card"><b>Atuador</b>Módulo Relé</div>
-            <div class="hw-card"><b>Protocolo</b>HTTP / Flask API</div>
+    <section class="card">
+        <span class="section-label">Apresentação ADO | Engenharia de Computação</span>
+        <h2>Diário de Brassagem: Tecnologia e Tradição</h2>
+        <p>
+            O sucesso da <strong>HerzBier</strong> não foi sorte, foi engenharia. Para produzir uma <strong>Witbier</strong> autêntica, 
+            precisávamos de precisão cirúrgica. Este portal documenta como o nosso sistema IoT garantiu a integridade sensorial através do controle térmico rigoroso.
+        </p>
+        <div style="text-align: center;">
+            <a href="https://herzbier-wphqdch6k66kxa6wyvlchj.streamlit.app/" class="btn-dash">ACESSAR DASHBOARD EM TEMPO REAL →</a>
         </div>
     </section>
 
-    <section>
-        <h2>Sistemas de Controle Realimentado</h2>
-        <div class="logic-box">
-            <p>// Cálculo do Erro de Controle</p>
-            <span class="formula">e(t) = T_setpoint - T_medida</span>
-            <p>// Métrica de Desempenho (ADO)</p>
-            <span class="formula">Conformidade > 95% dentro da faixa</span>
-            <p>// Média Aritmética das Leituras</p>
-            <span class="formula">T_avg = (Σ T_i) / N</span>
+    <section class="card">
+        <span class="section-label">Infraestrutura IoT</span>
+        <h2>01. Arquitetura e Controle</h2>
+        <p>Implementamos uma <strong>Malha de Controle Realimentada</strong>. O microcontrolador ESP32 processa os dados dos sensores e atua sobre a carga via relé para manter a conformidade térmica [cite: 1-126].</p>
+        
+        <div class="tech-box">
+            Hardware: ESP32 + DS18B20 + DHT22 + LCD I2C <br>
+            Backend: Python Flask + PostgreSQL (Database: ByteBier) [cite: 127-146]<br>
+            Visualização: Dashboard Streamlit Cloud [cite: 228-236]
+            <br>
+            <div class="loop-badge">↻ Feedback Loop: Diferencial Térmico < 0.5°C ↻ [cite: 115]</div>
         </div>
     </section>
 
-    <section>
-        <h2>Fluxograma do Processo Cervejeiro</h2>
-        <div class="flow-container">
-            <div class="flow-phase quente">FASE QUENTE: Moagem ➔ Mostura (62-72°C) ➔ Clarificação ➔ Fervura (95-100°C)</div>
-            <div style="text-align: center;">⬇</div>
-            <div class="flow-phase fria">FASE FRIA: Resfriamento ➔ Aeração ➔ Fermentação (18-24°C) ➔ Maturação ➔ Envase</div>
-        </div>
-        <p style="margin-top: 15px; font-size: 0.85rem;">*Fase Quente: ~8 horas de processo. Fase Fria: Elevado risco de contaminação, exige sanitização rigorosa.</p>
-    </section>
+    <section class="card">
+        <span class="section-label">Parâmetros de Processo</span>
+        <h2>02. Detalhamento das Etapas</h2>
+        <p>O acompanhamento respeita as rampas de temperatura definidas na lógica do firmware para garantir a conversão enzimática e estabilidade aromática [cite: 150-155]:</p>
 
-    <section>
-        <h2>Critérios de Avaliação (ADO)</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Item</th>
-                    <th>Documentação / Requisito</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Gestão</td>
-                    <td>TAP (Termo de Abertura) e Atas de Reunião</td>
-                    <td>Conforme PDF Aula 1</td>
-                </tr>
-                <tr>
-                    <td>Técnico</td>
-                    <td>Circuito Eletrônico e Dashboard de Visualização</td>
-                    <td>Em desenvolvimento</td>
-                </tr>
-                <tr>
-                    <td>Científico</td>
-                    <td>Relatório/Artigo Científico e Banner para Semana das Engenharias</td>
-                    <td>Pendente</td>
-                </tr>
-                <tr>
-                    <td>Produto</td>
-                    <td>Cerveja Envasada (Growler PET 1L) com Rótulo Próprio</td>
-                    <td>Finalização em Junho</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="grid">
+            <div class="fase-card">
+                <h3>Mostura (Fase Quente)</h3>
+                <p>Setpoint: <span class="metric">65.0°C</span>[cite: 38].</p>
+                <p style="font-size: 0.85rem; margin-top: 10px; color: #64748B;">
+                    Monitoramento contínuo para evitar a desnaturação das enzimas e garantir a extração ideal de açúcares do malte.
+                </p>
+            </div>
+
+            <div class="fase-card">
+                <h3>Fermentação (Fase Fria)</h3>
+                <p>Setpoint: <span class="metric">20.0°C</span>[cite: 39].</p>
+                <p style="font-size: 0.85rem; margin-top: 10px; color: #64748B;">
+                    Duração de 7 dias com foco em manter a estabilidade para preservação dos ésteres cítricos característicos da Witbier.
+                </p>
+            </div>
+
+            <div class="fase-card">
+                <h3>Fervura</h3>
+                <p>Setpoint: <span class="metric">98.0°C</span>[cite: 39].</p>
+                <p style="font-size: 0.85rem; margin-top: 10px; color: #64748B;">
+                    Controle da isomerização do lúpulo e esterilização do mosto antes do resfriamento.
+                </p>
+            </div>
+
+            <div class="fase-card">
+                <h3>Maturação</h3>
+                <p>Setpoint: <span class="metric">2.0°C</span>[cite: 39].</p>
+                <p style="font-size: 0.85rem; margin-top: 10px; color: #64748B;">
+                    Clarificação final e refinamento do perfil sensorial da cerveja sob monitoramento passivo.
+                </p>
+            </div>
+        </div>
     </section>
 
 </div>
 
 <footer>
-    <p>HerzBier | Projeto Cervejeiro 2026 | Senac Nações Unidas</p>
-    <p>Baseado nas referências bibliográficas: Franklin (2013) e Silva (2020).</p>
+    <p>HerzBier | Engenharia de Computação | Senac Nações Unidas 2026</p>
+    <p>Projeto Acadêmico - Ciência e Tecnologia Aplicada I</p>
 </footer>
 
 </body>
